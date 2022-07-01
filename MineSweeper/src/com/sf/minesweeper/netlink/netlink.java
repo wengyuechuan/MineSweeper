@@ -1,0 +1,42 @@
+package com.sf.minesweeper.netlink;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintStream;
+import java.net.Socket;
+import java.net.UnknownHostException;
+
+public class netlink implements Runnable{
+	public Socket s=null; //由于异常问题，则这里
+	public BufferedReader br=null;
+	public PrintStream ps=null;
+	public netlink() throws IOException {
+		this.s=new Socket("127.0.0.1",9999);
+		this.br=new BufferedReader(new InputStreamReader(s.getInputStream()));//用于读取信息的缓冲区
+        this.ps = new PrintStream(s.getOutputStream());
+        new Thread(this).start();//在创建线程的过程中就启动线程
+	}
+	/**
+	 * 可以发送的请求：
+	 * 	LOGIN#登录请求
+	 * 	REGISTER#注册请求
+	 * 	PUTWIN#写入排行榜请求
+	 * 	GETWIN#得到排行榜请求
+	 */
+	
+	/**
+	 * 可以接收的请求：
+	 * 	ACCEPTLOGIN#允许登录，此时正确登录
+	 * 	REFUSELOGIN#拒绝登录，此时没有正确登录
+	 * 	ACCEPTREGISTER#正确注册
+	 * 	REFUSEREGISTER#拒绝注册
+	 * 	OFFLINE#下线请求，服务器踢出玩家
+	 */
+	@Override
+	public void run() {
+		
+	}
+
+	
+}
