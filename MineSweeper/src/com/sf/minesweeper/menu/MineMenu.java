@@ -59,10 +59,14 @@ public class MineMenu extends JMenuBar {
 		heroMenu.setMnemonic('T');
 		heroMenu.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
+				//发出申请
+				sartFrame.getNetlink().getwinRequest();
+				
+				//得到数据并改变Tools类里面的数据
+				
 				new ShowWin(getSartFrame());
 			}
-			 
-	        });
+	    });
 		fileMenu.add(heroMenu);
 		JMenuItem loginItem=new JMenuItem("登录(L)");
 		loginItem.addActionListener(new ActionListener() {
@@ -84,8 +88,8 @@ public class MineMenu extends JMenuBar {
 		JMenuItem exitItem = new JMenuItem("退出(X)");        
 		exitItem.addActionListener(new ActionListener() {    //加一个系统退出的处理监听
 			public void actionPerformed(ActionEvent e) {
-				System.exit(0);
-
+				//System.exit(0);
+				sartFrame.getNetlink().offlineRequest(sartFrame.getNetlink().getName());
 			}
 		});
 		fileMenu.add(exitItem);

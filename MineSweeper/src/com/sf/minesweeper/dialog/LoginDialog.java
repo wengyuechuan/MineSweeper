@@ -44,10 +44,12 @@ public class LoginDialog extends JDialog{
 	        public void actionPerformed(ActionEvent e) {
 	            String username1=uname.getText();
 	            String password1= String.valueOf(passwordField.getPassword());
-	            if(username1.equals("wyc") && password1.equals("123") ) {
-	            	Tools.ifLogin=true;//如果账号为wyc密码为123则修改状态为已经登录
+	            sartsrame.getNetlink().loginRequest(username1, password1);
+	            
+	            if(Tools.canLogin) {
 	            	JOptionPane.showMessageDialog(that,"登录成功");
-	            	
+	            	sartsrame.getNetlink().setName(username1);
+	            
 	            }else {
 	            	JOptionPane.showMessageDialog(that,"您输入的用户名或者密码错误,请重新输入");
 	            }

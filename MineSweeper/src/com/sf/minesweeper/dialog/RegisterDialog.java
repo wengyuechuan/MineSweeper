@@ -44,13 +44,22 @@ public class RegisterDialog extends JDialog{
 	            String username1=uname.getText();
 	            String password1= String.valueOf(passwordField.getPassword());
 	            String repassword1=String.valueOf(repasswordField.getPassword());
+	            sartsrame.getNetlink().registerRequest(username1, password1, repassword1);
+	            
+	            if(Tools.canRegister) {
+	            	JOptionPane.showMessageDialog(that,"注册成功");
+	            }else {
+	            	JOptionPane.showMessageDialog(that,Tools.errorMsg);
+	            }
+	            
+	           /*
 	            if(!password1.equals(repassword1)) {
 	            	JOptionPane.showMessageDialog(that,"两次输入密码不一致");
 	            }else if(username1.equals("wyc") ) {
 	            	JOptionPane.showMessageDialog(that,"用户名存在");
 	            }else {
 	            	JOptionPane.showMessageDialog(that,"注册成功");
-	            }
+	            }*/
 	        }
 	    });
 	    jpanel1=new JPanel();

@@ -14,6 +14,9 @@ public class Tools {
 	public static int totaly = 9;
 	public static int totalMine = 10;
 	
+	//分数基数
+	public static final int magnification = 10000;
+	
 	
 	public static int time = 0;
 	public static int time1= 999;
@@ -37,9 +40,15 @@ public class Tools {
 	public static String currentLevel = LOWER_LEVEL;
 	
 	/**
-	 * 玩家是否登录
+	 * 玩家是否可以登录
 	 */
-	public static boolean ifLogin=false;//默认没有登录
+	public static boolean canLogin = false;//默认不可以登录
+	
+	//玩家是否可以注册
+	public static boolean canRegister = false;//默认不可以注册
+	public static String errorMsg = "";
+	
+	
 	/**
 	 *  用来存放0-8数字标签图片
 	 * 

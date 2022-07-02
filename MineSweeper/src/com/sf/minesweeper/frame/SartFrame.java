@@ -2,6 +2,8 @@ package com.sf.minesweeper.frame;
 
 import java.awt.BorderLayout;
 import java.awt.Font;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.net.Socket;
 
 import javax.swing.JFrame;
@@ -11,6 +13,7 @@ import javax.swing.Timer;
 import javax.swing.UIManager;
 
 import com.sf.minesweeper.menu.MineMenu;
+import com.sf.minesweeper.netlink.netlink;
 import com.sf.minesweeper.panel.MineField;
 import com.sf.minesweeper.panel.MineState;
 import com.sf.minesweeper.timer.Timers;
@@ -31,12 +34,13 @@ public class SartFrame extends JFrame{
 	private MineMenu mineMenu;
 	private Timer timer;
 	private Timers timers;
+	private netlink Netlink;//netlink线程，用于连接服务器
 	/**
 	 * 游戏是否开始
 	 */
 	private boolean isStart;
 	JLabel jLabel_start = new JLabel(); // 开始图片
-
+	
 	
 	public SartFrame() {
 		//改变系统默认字体
@@ -56,6 +60,52 @@ public class SartFrame extends JFrame{
 
 		this.setResizable(false); // 这样让窗口不会可放大
 		
+		//加一个关闭监听窗口
+		this.addWindowListener(new WindowListener() {
+			
+			@Override
+			public void windowOpened(WindowEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void windowClosing(WindowEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void windowClosed(WindowEvent e) {
+				// TODO Auto-generated method stub
+				Netlink.offlineRequest(Netlink.getName());
+				dispose();
+			}
+
+			@Override
+			public void windowIconified(WindowEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void windowDeiconified(WindowEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void windowActivated(WindowEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void windowDeactivated(WindowEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 		
 		// ..................状态栏.....................
 		mineState = new MineState(this);
@@ -158,9 +208,22 @@ public class SartFrame extends JFrame{
 	public void setStart(boolean isStart) {
 		this.isStart = isStart;
 	}
+	
+	public netlink getNetlink() {
+		return Netlink;
+	}
+
+
+	public void setNetlink(netlink netlink) {
+		Netlink = netlink;
+	}
+	
 	public static void main(String[] args) {
 		new SartFrame();
 	}
+
+
+	
 	
 	
 	

@@ -44,78 +44,7 @@ public class ShowWin extends JDialog {
 			this.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			init();
 		}
-		public JLabel getJLabel1() {
-			return jlabel1;
-		}
-		public void setJLabel1(JLabel jlabel1) {
-			this.jlabel1 = jlabel1;
-		}
-		public JLabel getJLabel2() {
-			return jlabel2;
-		}
-		public void setJLabel2(JLabel jlabel2) {
-			this.jlabel2 = jlabel2;
-		}
-		public JLabel getJLabel3() {
-			return jlabel3;
-		}
-		public void setJLabel3(JLabel jlabel3) {
-			this.jlabel3 = jlabel3;
-		}
-		public JLabel getJLabel4() {
-			return jlabel4;
-		}
-		public void setJLabel4(JLabel jlabel4) {
-			this.jlabel4 = jlabel4;
-		}
-		public JLabel getJLabel5() {
-			return jlabel5;
-		}
-		public void setJLabel5(JLabel jlabel5) {
-			this.jlabel5 = jlabel5;
-		}
-		public JLabel getJLabel6() {
-			return jlabel6;
-		}
-		public void setJLabel6(JLabel jlabel6) {
-			this.jlabel6 = jlabel6;
-		}
-		public JLabel getTime1() {
-			return time1;
-		}
-		public void setTime1(JLabel time1) {
-			this.time1 = time1;
-		}
-		public JLabel getTime2() {
-			return time2;
-		}
-		public void setTime2(JLabel time2) {
-			this.time2 = time2;
-		}
-		public JLabel getTime3() {
-			return time3;
-		}
-		public void setTime3(JLabel time3) {
-			this.time3 = time3;
-		}
-		public JLabel getName1() {
-			return name1;
-		}
-		public void setName1(JLabel name1) {
-			this.name1 = name1;
-		}
-		public JLabel getName2() {
-			return name2;
-		}
-		public void setName2(JLabel name2) {
-			this.name2 = name2;
-		}
-		public JLabel getName3() {
-			return name3;
-		}
-		public void setName3(JLabel name3) {
-			this.name3 = name3;
-		}
+		
 		public void init(){
 			HeroListener heroListener = new HeroListener();
 			jlabel1 = new JLabel(" ¼¶±ð");
@@ -197,6 +126,78 @@ public class ShowWin extends JDialog {
 					//dispose();
 				}
 			}
+		}
+		public JLabel getJLabel1() {
+			return jlabel1;
+		}
+		public void setJLabel1(JLabel jlabel1) {
+			this.jlabel1 = jlabel1;
+		}
+		public JLabel getJLabel2() {
+			return jlabel2;
+		}
+		public void setJLabel2(JLabel jlabel2) {
+			this.jlabel2 = jlabel2;
+		}
+		public JLabel getJLabel3() {
+			return jlabel3;
+		}
+		public void setJLabel3(JLabel jlabel3) {
+			this.jlabel3 = jlabel3;
+		}
+		public JLabel getJLabel4() {
+			return jlabel4;
+		}
+		public void setJLabel4(JLabel jlabel4) {
+			this.jlabel4 = jlabel4;
+		}
+		public JLabel getJLabel5() {
+			return jlabel5;
+		}
+		public void setJLabel5(JLabel jlabel5) {
+			this.jlabel5 = jlabel5;
+		}
+		public JLabel getJLabel6() {
+			return jlabel6;
+		}
+		public void setJLabel6(JLabel jlabel6) {
+			this.jlabel6 = jlabel6;
+		}
+		public JLabel getTime1() {
+			return time1;
+		}
+		public void setTime1(JLabel time1) {
+			this.time1 = time1;
+		}
+		public JLabel getTime2() {
+			return time2;
+		}
+		public void setTime2(JLabel time2) {
+			this.time2 = time2;
+		}
+		public JLabel getTime3() {
+			return time3;
+		}
+		public void setTime3(JLabel time3) {
+			this.time3 = time3;
+		}
+		public JLabel getName1() {
+			return name1;
+		}
+		public void setName1(JLabel name1) {
+			this.name1 = name1;
+		}
+		public JLabel getName2() {
+			return name2;
+		}
+		public void setName2(JLabel name2) {
+			this.name2 = name2;
+		}
+		public JLabel getName3() {
+			return name3;
+		}
+		public void setName3(JLabel name3) {
+			this.name3 = name3;
 		}
 	}
 

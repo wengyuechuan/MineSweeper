@@ -61,6 +61,7 @@ public class Win extends JDialog {
 						Tools.time1 = Tools.time;
 						Tools.name1=text.getText();
 					}
+					
 				}
 				if(Tools.currentLevel.equals("ÖÐ¼¶")){				
 					if(Tools.time2>=Tools.time){
@@ -74,6 +75,10 @@ public class Win extends JDialog {
 						Tools.name3=text.getText();
 					}
 				}
+				String ip = sartFrame.getNetlink().s.getInetAddress().toString();
+				int BlockNum = Tools.totalx * Tools.totaly;
+				String score = ""+ Tools.magnification * Tools.totalMine / BlockNum * Tools.time;
+				sartFrame.getNetlink().putwinRequset(Tools.name1, ip, ""+Tools.time, score);
 				
 				Win.this.dispose();
 				
