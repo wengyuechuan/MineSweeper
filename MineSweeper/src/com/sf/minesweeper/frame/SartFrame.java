@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Font;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.io.IOException;
 import java.net.Socket;
 
 import javax.swing.JFrame;
@@ -42,7 +43,7 @@ public class SartFrame extends JFrame{
 	JLabel jLabel_start = new JLabel(); // 开始图片
 	
 	
-	public SartFrame() {
+	public SartFrame() throws IOException {
 		//改变系统默认字体
 		Font font = new Font("Dialog", Font.PLAIN, 12);
 		java.util.Enumeration keys = UIManager.getDefaults().keys();
@@ -72,14 +73,14 @@ public class SartFrame extends JFrame{
 			@Override
 			public void windowClosing(WindowEvent e) {
 				// TODO Auto-generated method stub
+				Netlink.offlineRequest(Netlink.getName());
 				
 			}
 
 			@Override
 			public void windowClosed(WindowEvent e) {
 				// TODO Auto-generated method stub
-				Netlink.offlineRequest(Netlink.getName());
-				dispose();
+				
 			}
 
 			@Override
@@ -127,6 +128,9 @@ public class SartFrame extends JFrame{
 		timers = new Timers(mineState);
 		timer = new Timer(1000, timers);
 
+		//.....................netlink线程................
+		Netlink = new netlink();
+		
 		pack();
 		this.setVisible(true);
 	}
@@ -218,7 +222,7 @@ public class SartFrame extends JFrame{
 		Netlink = netlink;
 	}
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		new SartFrame();
 	}
 

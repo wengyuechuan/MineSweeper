@@ -37,24 +37,54 @@ public class netlink implements Runnable{
 	 * 	GETWIN#得到排行榜请求
 	 *  OFFLINE#退出请求
 	 */
-	public void loginRequest(String usrname, String password) {
-		ps.println("LOGIN#" + usrname + password);
+	public void loginRequest(String usrname, String password){
+		ps.println("LOGIN#" + usrname + "#" + password);
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	public void registerRequest(String usrname, String password, String repassword) {
-		ps.println("REGISTER#" + usrname + password + repassword);
+		ps.println("REGISTER#" + usrname + "#" + password + "#" + repassword);
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	public void putwinRequset(String usrname, String ip, String time, String score) {
-		ps.println("PUTWIN#" + usrname + ip + time + score);
+		ps.println("PUTWIN#" + usrname + "#" + ip + "#" + time + "#" + score);
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}//目前还未使用在事件监听操作中
 	
 	public void getwinRequest() {
 		ps.println("GETWIN#");
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	public void offlineRequest(String usrname) {
 		ps.println("OFFLINE#" + usrname);
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	/**
@@ -73,6 +103,7 @@ public class netlink implements Runnable{
 				String[] readMsg = readInf.split("#");
 				if(readMsg[0].equals("ACCEPTLOGIN")) {
 					Tools.canLogin = true;
+					
 				}else if(readMsg[0].equals("REFUSELOGIN")) {
 					Tools.canLogin = false;
 				}else if(readMsg[0].equals("ACCEPTREGISTER")) {

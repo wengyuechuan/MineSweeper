@@ -44,6 +44,11 @@ public class Tools {
 	 */
 	public static boolean canLogin = false;//默认不可以登录
 	
+	/*
+	 * 玩家是否登录了
+	 */
+	public static boolean islogin = false;//默认没登陆
+	
 	//玩家是否可以注册
 	public static boolean canRegister = false;//默认不可以注册
 	public static String errorMsg = "";

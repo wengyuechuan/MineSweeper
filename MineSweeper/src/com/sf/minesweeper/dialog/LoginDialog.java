@@ -29,7 +29,7 @@ public class LoginDialog extends JDialog{
 		 this.sartsrame=sartsrame;
 		 this.setTitle("登录");
 		 this.setVisible(true);
-		 this.setSize(220, 210);
+		 this.setSize(300, 300);
 		 this.setResizable(false);//不可以通过调整窗口大小
 		 this.setLocationRelativeTo(sartsrame);
 		 this.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
@@ -42,17 +42,23 @@ public class LoginDialog extends JDialog{
 	    submit=new JButton(new AbstractAction("登录") {
 	        @Override
 	        public void actionPerformed(ActionEvent e) {
-	            String username1=uname.getText();
-	            String password1= String.valueOf(passwordField.getPassword());
-	            sartsrame.getNetlink().loginRequest(username1, password1);
+	        	if(Tools.islogin) {
+	        		JOptionPane.showMessageDialog(that,"您已经登录过了，如果需要更换账号请退出重新登陆");
+	        		
+	        	}else {
+	        		String username1=uname.getText();
+		            String password1= String.valueOf(passwordField.getPassword());
+		            sartsrame.getNetlink().loginRequest(username1, password1);
+		            
+		            if(Tools.canLogin) {
+		            	JOptionPane.showMessageDialog(that,"登录成功");
+		            	sartsrame.getNetlink().setName(username1);
+		            	Tools.islogin = true;
+		            }else {
+		            	JOptionPane.showMessageDialog(that,"您输入的用户名或者密码错误,请重新输入");
+		            }
+	        	}
 	            
-	            if(Tools.canLogin) {
-	            	JOptionPane.showMessageDialog(that,"登录成功");
-	            	sartsrame.getNetlink().setName(username1);
-	            
-	            }else {
-	            	JOptionPane.showMessageDialog(that,"您输入的用户名或者密码错误,请重新输入");
-	            }
 	        }
 	    });
 	    jpanel1=new JPanel();

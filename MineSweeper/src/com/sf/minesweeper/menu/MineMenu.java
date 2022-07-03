@@ -19,10 +19,10 @@ public class MineMenu extends JMenuBar {
 	/**
 	 * 
 	 */
-
+	private SartFrame sartFrame;
 	private static final long serialVersionUID = -5997735339754706915L;
 	//SartFrame sartFrame;
-	public MineMenu(SartFrame sartFrame){
+	public MineMenu(final SartFrame sartFrame){
 		this.sartFrame=sartFrame;
 		
 		MineMenuListener listener=new MineMenuListener(sartFrame);
@@ -127,7 +127,7 @@ public class MineMenu extends JMenuBar {
 		
 	}
 
-	private SartFrame sartFrame;
+	
 
 	public SartFrame getSartFrame(){
 		return sartFrame;
