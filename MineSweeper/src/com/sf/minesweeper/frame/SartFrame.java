@@ -129,7 +129,7 @@ public class SartFrame extends JFrame{
 		timer = new Timer(1000, timers);
 
 		//.....................netlinkÏß³Ì................
-		Netlink = new netlink();
+		Netlink = new netlink(this);
 		
 		pack();
 		this.setVisible(true);

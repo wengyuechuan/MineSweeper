@@ -25,7 +25,12 @@ public class Tools {
 	public static String name1="匿名";
 	public static String name2="匿名";
 	public static String name3="匿名";
-	
+	public static String ip1="0.0.0.0";
+	public static String ip2="0.0.0.0";
+	public static String ip3="0.0.0.0";
+	public static String scores1="";
+	public static String scores2="";
+	public static String scores3="";
 
 	/**
 	 * 游戏等级
