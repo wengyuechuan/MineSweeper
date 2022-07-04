@@ -89,7 +89,7 @@ public class MineMenu extends JMenuBar {
 		exitItem.addActionListener(new ActionListener() {    //加一个系统退出的处理监听
 			public void actionPerformed(ActionEvent e) {
 				//System.exit(0);
-				sartFrame.getNetlink().offlineRequest(sartFrame.getNetlink().getName());
+				sartFrame.getNetlink().offlineRequest(sartFrame.getNetlink().getName(),"NOKICK");
 			}
 		});
 		fileMenu.add(exitItem);

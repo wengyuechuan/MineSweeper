@@ -9,6 +9,7 @@ import java.net.Socket;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.Timer;
 import javax.swing.UIManager;
@@ -62,51 +63,8 @@ public class SartFrame extends JFrame{
 		this.setResizable(false); // 这样让窗口不会可放大
 		
 		//加一个关闭监听窗口
-		this.addWindowListener(new WindowListener() {
-			
-			@Override
-			public void windowOpened(WindowEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void windowClosing(WindowEvent e) {
-				// TODO Auto-generated method stub
-				Netlink.offlineRequest(Netlink.getName());
-				
-			}
-
-			@Override
-			public void windowClosed(WindowEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void windowIconified(WindowEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void windowDeiconified(WindowEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void windowActivated(WindowEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void windowDeactivated(WindowEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-		});
+		MyWindowListener myWindowListener = new MyWindowListener(this);
+		this.addWindowListener(myWindowListener);
 		
 		// ..................状态栏.....................
 		mineState = new MineState(this);
@@ -226,13 +184,63 @@ public class SartFrame extends JFrame{
 		new SartFrame();
 	}
 
+	
+}
 
-	
-	
-	
-	
-	
 
+class MyWindowListener implements WindowListener{
 	
+	private SartFrame sartframe;
 	
+	MyWindowListener(SartFrame sartframe){
+		this.sartframe = sartframe;
+	}
+	@Override
+	public void windowOpened(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowClosing(WindowEvent e) {
+		sartframe.getNetlink().offlineRequest(sartframe.getNetlink().getName(),"NOKICK");
+		
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+	}
+
+	@Override
+	public void windowClosed(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowIconified(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowDeiconified(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowActivated(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowDeactivated(WindowEvent e) {
+		// TODO Auto-generated method stub
+			
+		}
+
 }

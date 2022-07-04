@@ -81,8 +81,8 @@ public class netlink implements Runnable{
 		}
 	}
 	
-	public void offlineRequest(String usrname) {
-		ps.println("OFFLINE#" + usrname);
+	public void offlineRequest(String usrname, String OfflineType) {
+		ps.println("OFFLINE#" + usrname + "#" + OfflineType);
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
@@ -116,7 +116,9 @@ public class netlink implements Runnable{
 					Tools.canRegister = false;
 					Tools.errorMsg = readMsg[1];
 				}else if(readMsg[0].equals("OFFLINE")){//OFFLINE
-					JOptionPane.showMessageDialog(this.sartframe,"哦豁，你被服务器踢出去了，别玩了小伙子！");//可以使用
+					if(readMsg[2].equals("KICK")) {
+						JOptionPane.showMessageDialog(this.sartframe,"哦豁，你被服务器踢出去了，别玩了小伙子！");//可以使用
+					}
 					System.exit(0);
 				}else if(readMsg[0].equals("GETWINRESULT")) { //得到返回的结果
 					Tools.name1=readMsg[1];
