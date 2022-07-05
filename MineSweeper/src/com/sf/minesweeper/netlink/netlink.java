@@ -25,11 +25,32 @@ public class netlink implements Runnable{
 		this.name = name;
 	}
 	
-	public netlink(SartFrame sartframe) throws IOException {
+	public netlink(SartFrame sartframe) {
 		this.sartframe=sartframe;
-		this.s=new Socket("127.0.0.1",9999);
-		this.br=new BufferedReader(new InputStreamReader(s.getInputStream()));//用于读取信息的缓冲区
-        this.ps = new PrintStream(s.getOutputStream());
+			try {
+				this.s=new Socket("127.0.0.1",9999);
+			} catch (UnknownHostException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				JOptionPane.showMessageDialog(this.sartframe,"socket发生了错误，有可能是服务器没有开启或者您的网络出现了问题");//可以使用
+				System.exit(1); 
+			}
+
+		try {
+			this.br=new BufferedReader(new InputStreamReader(s.getInputStream()));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}//用于读取信息的缓冲区
+        try {
+			this.ps = new PrintStream(s.getOutputStream());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
         new Thread(this).start();//在创建线程的过程中就启动线程
 	}
 	
@@ -106,8 +127,7 @@ public class netlink implements Runnable{
 				String readInf = br.readLine();
 				String[] readMsg = readInf.split("#");
 				if(readMsg[0].equals("ACCEPTLOGIN")) {
-					Tools.canLogin = true;
-					
+					Tools.canLogin = true;		
 				}else if(readMsg[0].equals("REFUSELOGIN")) {
 					Tools.canLogin = false;
 				}else if(readMsg[0].equals("ACCEPTREGISTER")) {
@@ -116,8 +136,11 @@ public class netlink implements Runnable{
 					Tools.canRegister = false;
 					Tools.errorMsg = readMsg[1];
 				}else if(readMsg[0].equals("OFFLINE")){//OFFLINE
-					if(readMsg[2].equals("KICK")) {
-						JOptionPane.showMessageDialog(this.sartframe,"哦豁，你被服务器踢出去了，别玩了小伙子！");//可以使用
+					System.out.println(readMsg);
+					if(readMsg.length>1) {
+						if(readMsg[2].equals("KICK")) {
+							JOptionPane.showMessageDialog(this.sartframe,"哦豁，你被服务器踢出去了，别玩了小伙子！");//可以使用
+						}
 					}
 					System.exit(0);
 				}else if(readMsg[0].equals("GETWINRESULT")) { //得到返回的结果

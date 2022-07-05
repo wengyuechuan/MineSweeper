@@ -25,16 +25,15 @@ public class MouseListener extends MouseAdapter {
 	int temp = Tools.totalMine;// 临时雷数
 	boolean isStart;// 游戏是否开始
 	
-	
 	public MouseListener(SartFrame sartframe) {
 		this.sartframe = sartframe;
 	}
-    
+	@Override
 	public void mousePressed(MouseEvent arg0) {
 		
 		MineLabel mineLabel = (MineLabel) arg0.getSource();
 		int d = arg0.getModifiersEx();               // 返回此事件的修饰符掩码
-		int d1 = arg0.getModifiers();
+		int d1 = arg0.getButton();
 		// 获取当前点击的雷块和其行列索引
 		int rowIndex = mineLabel.getRowIndex();
 		int colIndex = mineLabel.getColIndex();
@@ -49,6 +48,7 @@ public class MouseListener extends MouseAdapter {
 		
 		// .............................1双键按下.............................
 		if (d == InputEvent.BUTTON1_DOWN_MASK + InputEvent.BUTTON3_DOWN_MASK) {
+		//双键按下，周围所有的格子下陷，然后上面的表情会发生改变
 			// 1 周围图片切换
 			for (int x = Math.max(rowIndex - 1, 0); x <= Math.min(rowIndex + 1,
 					Tools.totalx - 1); x++) {
@@ -65,7 +65,7 @@ public class MouseListener extends MouseAdapter {
 			isDouble = true;
 
 			// ..............................2右键按下  且雷块未展开....................................
-		} else if (d1 == InputEvent.BUTTON3_MASK && !mineLabel.isExpanded()) {
+		} else if (d1 == MouseEvent.BUTTON3 && !mineLabel.isExpanded()) {
 			// 右键点击次数
 			int clickCount = mineLabel.getRightClickCount();
 			clickCount++;
@@ -94,7 +94,7 @@ public class MouseListener extends MouseAdapter {
 			}
 			// **************************3左键按下************************************
 
-		} else if (d1 == InputEvent.BUTTON1_MASK) {
+		} else if (d1 ==MouseEvent.BUTTON1)  {
 			// 未展开且不是旗子(图片陷进去)
 			if (!mineLabel.isExpanded() && !mineLabel.isFlag()) {
 				// 问号
@@ -119,6 +119,7 @@ public class MouseListener extends MouseAdapter {
 	/**
 	 * 鼠标释放
 	 */
+	@Override
 	public void mouseReleased(MouseEvent arg0) {
 
 		MineLabel mineLabel = (MineLabel) arg0.getSource();
@@ -126,7 +127,7 @@ public class MouseListener extends MouseAdapter {
 		int rowIndex = mineLabel.getRowIndex();
 		int colIndex = mineLabel.getColIndex();
 
-		int i = arg0.getModifiers();
+		int i = arg0.getButton();
 		
 		
 		// ***************双键释放*********************************
@@ -138,7 +139,7 @@ public class MouseListener extends MouseAdapter {
 			isMind();
 
 			// ***************左键释放********************************
-		} else if (i == InputEvent.BUTTON1_MASK) {
+		} else if (i == MouseEvent.BUTTON1) {
 			if (!mineLabel.isExpanded() && !mineLabel.isFlag()) {
 				/**
 				 * 鼠标第一次点击雷区时计时器开始计时
@@ -176,7 +177,6 @@ public class MouseListener extends MouseAdapter {
 	}
 
 
-	
 	public void doubleReleased(int rowIndex, int colIndex, int count) {
 		/**
 		 * flagBeside 周围8个位置的旗子数
@@ -232,7 +232,6 @@ public class MouseListener extends MouseAdapter {
 
 	}
 
-	
 	public void doublePressedBeside(int rowIndex, int colIndex, int doubleType) {
 
 		doublePressed(rowIndex, colIndex, doubleType);
@@ -245,7 +244,6 @@ public class MouseListener extends MouseAdapter {
 			}
 		}
 	}
-	
 	public void doublePressed(int i, int j, int doubleType) {
 		MineLabel minelabel = sartframe.getMineField().getMineLabel()[i][j];
 
@@ -272,7 +270,7 @@ public class MouseListener extends MouseAdapter {
 			}
 		}
 	}
-
+	
 	public void openMine(int i, int j) {
 		for (int m = 0; m < Tools.totalx; m++) {
 			for (int n = 0; n < Tools.totaly; n++) {
@@ -302,7 +300,6 @@ public class MouseListener extends MouseAdapter {
 	}
 
 
-	
 	private void open(int rowIndex, int colIndex) {
 
 		MineLabel mineLabel = sartframe.getMineField().getMineLabel()[rowIndex][colIndex];
