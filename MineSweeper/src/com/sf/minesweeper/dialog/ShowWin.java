@@ -1,6 +1,5 @@
 package com.sf.minesweeper.dialog;
-//Download by http://www.codefans.net
-import java.awt.Dimension;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -9,42 +8,42 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 
-import com.sf.minesweeper.bean.Own;
 import com.sf.minesweeper.frame.SartFrame;
 import com.sf.minesweeper.tools.Tools;
 
 public class ShowWin extends JDialog {
-	//ublic class Hero extends JDialog{
-		private JLabel jlabel1;	
-		private JLabel jlabel2;
-		private JLabel jlabel3;
-		private JLabel jlabel4;
-		private JLabel jlabel5;
-		private JLabel jlabel6;
-		private JLabel jlabel7;
-		private JLabel jlabel8;
-		private JLabel jlabel9;
+	
+			
+		private JLabel jlabelTime;
+		private JLabel jlabelUser;
+		
+		private JLabel jlabelIp;
+		private JLabel jlabelScore;
+
 		private JLabel time1;
 		private JLabel time2;
 		private JLabel time3;
+		
 		private JLabel name1;
 		private JLabel name2;
 		private JLabel name3;
+		
 		private JLabel ip1;
 		private JLabel ip2;
 		private JLabel ip3;
+		
 		private JLabel scores1;
 		private JLabel scores2;
 		private JLabel scores3;
+		
 		private JButton jbutton1;
-		private JButton jbutton2;
+		
 		private SartFrame sartsrame;
 		private JPanel jpanel;
 		
 		public ShowWin(SartFrame sartsrame){
-			this.sartsrame=sartsrame;
+			this.setSartsrame(sartsrame);
 			this.setTitle("扫雷排行榜");
 			this.setVisible(true);
 			this.setSize(400,300);
@@ -56,14 +55,12 @@ public class ShowWin extends JDialog {
 		
 		public void init(){
 			HeroListener heroListener = new HeroListener();
-//			jlabel1 = new JLabel(" 级别");
-			jlabel2 = new JLabel(" 时间");
-			jlabel3 = new JLabel(" 玩家");
-			jlabel7=new JLabel("ip");
-			jlabel8=new JLabel("得分");
-//			jlabel4 = new JLabel(" 初级：");
-//			jlabel5 = new JLabel(" 中级：");
-//			jlabel6 = new JLabel(" 高级：");
+
+			jlabelTime = new JLabel(" 时间");
+			jlabelUser = new JLabel(" 玩家");
+			jlabelIp=new JLabel("ip");
+			jlabelScore=new JLabel("得分");
+
 			time1 = new JLabel(""+Tools.time1);
 			time2 = new JLabel(""+Tools.time2);
 			time3 = new JLabel(""+Tools.time3);
@@ -78,19 +75,18 @@ public class ShowWin extends JDialog {
 			scores3=new JLabel(" "+Tools.scores3);
 			jbutton1=new JButton("确定");
 			jbutton1.addActionListener(heroListener);
-			jbutton2=new JButton("重新设置");
-			jbutton2.addActionListener(heroListener);
+			
 			jpanel=new JPanel();
-			Box box1 = Box.createVerticalBox();
-			box1.add(jlabel3);
-			box1.add(Box.createVerticalStrut(10));
+			Box box1 = Box.createVerticalBox();//垂直组件
+			box1.add(jlabelUser);//玩家
+			box1.add(Box.createVerticalStrut(10));//垂直间隔
 			box1.add(name1);
 			box1.add(Box.createVerticalStrut(10));
 			box1.add(name2);
 			box1.add(Box.createVerticalStrut(10));
 			box1.add(name3);
 			Box box2 = Box.createVerticalBox();
-			box2.add(jlabel7);
+			box2.add(jlabelIp);//ip
 			box2.add(Box.createVerticalStrut(10));
 			box2.add(ip1);
 			box2.add(Box.createVerticalStrut(10));
@@ -98,7 +94,7 @@ public class ShowWin extends JDialog {
 			box2.add(Box.createVerticalStrut(10));
 			box2.add(ip3);
 			Box box3 = Box.createVerticalBox();
-			box3.add(jlabel2);
+			box3.add(jlabelTime);//时间
 			box3.add(Box.createVerticalStrut(10));
 			box3.add(time1);
 			box3.add(Box.createVerticalStrut(10));
@@ -106,22 +102,22 @@ public class ShowWin extends JDialog {
 			box3.add(Box.createVerticalStrut(10));
 			box3.add(time3);
 			Box box7 = Box.createVerticalBox();
-			box7.add(jlabel8);
+			box7.add(jlabelScore);//得分
 			box7.add(Box.createVerticalStrut(10));
 			box7.add(scores1);
 			box7.add(Box.createVerticalStrut(10));
 			box7.add(scores2);
 			box7.add(Box.createVerticalStrut(10));
 			box7.add(scores3);
-			Box box4 = Box.createHorizontalBox();
-			box4.add(jbutton1);
-			box4.add(Box.createHorizontalStrut(20));
-			box4.add(jbutton2);
+			Box box4 = Box.createHorizontalBox();//水平组件
+			box4.add(jbutton1);//确定
+			
+			
 			Box box5 = Box.createHorizontalBox();
-			box5.add(box1);
-			box5.add(box2);
-			box5.add(box3);
-			box5.add(box7);
+			box5.add(box1);//玩家
+			box5.add(box2);//ip
+			box5.add(box3);//时间
+			box5.add(box7);//得分
 			Box box6 = Box.createVerticalBox();
 			box6.add(Box.createVerticalStrut(20));
 			box6.add(box5);
@@ -132,98 +128,14 @@ public class ShowWin extends JDialog {
 		}
 		class HeroListener implements ActionListener{
 			public void actionPerformed(ActionEvent e){
-				String command = e.getActionCommand();
-				if(command.equals("确定")){
-					dispose();
-				}
-				else {
-					Tools.time1 = 999;
-					Tools.time2 = 999;
-					Tools.time3 = 999;
-					Tools.name1 = " 匿名";
-					Tools.name2 = " 匿名";
-					Tools.name3 = " 匿名";			
-					time1.setText(""+Tools.time1);
-					name1.setText(Tools.name1);				
-					time2.setText(""+Tools.time2);
-					name2.setText(Tools.name2);			
-					time3.setText(""+Tools.time3);
-					name3.setText(Tools.name3);
-					//dispose();
-				}
+				dispose();
+				
 			}
 		}
-		public JLabel getJLabel1() {
-			return jlabel1;
-		}
-		public void setJLabel1(JLabel jlabel1) {
-			this.jlabel1 = jlabel1;
-		}
-		public JLabel getJLabel2() {
-			return jlabel2;
-		}
-		public void setJLabel2(JLabel jlabel2) {
-			this.jlabel2 = jlabel2;
-		}
-		public JLabel getJLabel3() {
-			return jlabel3;
-		}
-		public void setJLabel3(JLabel jlabel3) {
-			this.jlabel3 = jlabel3;
-		}
-		public JLabel getJLabel4() {
-			return jlabel4;
-		}
-		public void setJLabel4(JLabel jlabel4) {
-			this.jlabel4 = jlabel4;
-		}
-		public JLabel getJLabel5() {
-			return jlabel5;
-		}
-		public void setJLabel5(JLabel jlabel5) {
-			this.jlabel5 = jlabel5;
-		}
-		public JLabel getJLabel6() {
-			return jlabel6;
-		}
-		public void setJLabel6(JLabel jlabel6) {
-			this.jlabel6 = jlabel6;
-		}
-		public JLabel getTime1() {
-			return time1;
-		}
-		public void setTime1(JLabel time1) {
-			this.time1 = time1;
-		}
-		public JLabel getTime2() {
-			return time2;
-		}
-		public void setTime2(JLabel time2) {
-			this.time2 = time2;
-		}
-		public JLabel getTime3() {
-			return time3;
-		}
-		public void setTime3(JLabel time3) {
-			this.time3 = time3;
-		}
-		public JLabel getName1() {
-			return name1;
-		}
-		public void setName1(JLabel name1) {
-			this.name1 = name1;
-		}
-		public JLabel getName2() {
-			return name2;
-		}
-		public void setName2(JLabel name2) {
-			this.name2 = name2;
-		}
-		public JLabel getName3() {
-			return name3;
-		}
-		public void setName3(JLabel name3) {
-			this.name3 = name3;
+		
+
+		public void setSartsrame(SartFrame sartsrame) {
+			this.sartsrame = sartsrame;
 		}
 	}
 

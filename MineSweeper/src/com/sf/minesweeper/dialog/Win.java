@@ -1,6 +1,4 @@
 package com.sf.minesweeper.dialog;
-//Download by http://www.codefans.net
-import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -19,9 +17,7 @@ import com.sf.minesweeper.tools.Tools;
 public class Win extends JDialog {
 	SartFrame sartFrame;
 	private JTextField text;
-	TreeSet<Own> LOWER = new TreeSet<Own>();
-	TreeSet<Own> MIDDLE = new TreeSet<Own>();
-	TreeSet<Own> HEIGHT = new TreeSet<Own>();
+	
 	
 	public Win(SartFrame sartFrame){
 		this.sartFrame = sartFrame;
@@ -33,7 +29,7 @@ public class Win extends JDialog {
 	}
 
 	private void init() {
-		// TODO Auto-generated method stub
+		
 		/**
 		 * 存放记入
 		 * 
@@ -50,31 +46,12 @@ public class Win extends JDialog {
 		JLabel labTime = new JLabel("你所使用的时间："+Tools.time);
 		panel.add(labTime);
 		
-		JButton butys = new JButton("保存");
-		butys.addActionListener(new ActionListener() {	
+		JButton butStore = new JButton("保存");
+		butStore.addActionListener(new ActionListener() {	
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				// TODO Auto-generated method stub
-				if(Tools.currentLevel.equals("初级")){
-					if(Tools.time1>=Tools.time){
-						Tools.time1 = Tools.time;
-						Tools.name1=text.getText();
-					}
-					
-				}
-				if(Tools.currentLevel.equals("中级")){				
-					if(Tools.time2>=Tools.time){
-						Tools.time2= Tools.time;
-						Tools.name2=text.getText();
-					}
-				}
-				if(Tools.currentLevel.equals("高级")){				
-					if(Tools.time3>=Tools.time){
-						Tools.time3 = Tools.time;
-						Tools.name3=text.getText();
-					}
-				}
+				
 				String ip = sartFrame.getNetlink().s.getInetAddress().toString();
 				int BlockNum = Tools.totalx * Tools.totaly;
 				String score = ""+ Tools.magnification * Tools.totalMine / BlockNum * Tools.time;
@@ -84,7 +61,7 @@ public class Win extends JDialog {
 				
 			}
 		});
-		panel.add(butys);
+		panel.add(butStore);
 		this.add(panel);
 		
 	}

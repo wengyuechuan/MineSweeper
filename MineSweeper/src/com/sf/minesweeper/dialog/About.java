@@ -27,22 +27,22 @@ public class About extends JDialog {
 		this.setLocationRelativeTo(null);
 		this.setModal(true);
 		this.setSize(new Dimension(200,200));
-		//this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
 		this.init();
 		this.setVisible(true);
 	}
 
 	private void init() {
-		// TODO Auto-generated method stub
+		
 		JPanel jPanel = new JPanel();
-		 labx = new JLabel("");
-		 jTextField1=new JTextField(12);
-		 jTextField2=new JTextField(12);
-		 jTextField3=new JTextField(12);
+		labx = new JLabel("");
+		jTextField1=new JTextField(12);
+		jTextField2=new JTextField(12);
+		jTextField3=new JTextField(12);
 		 
-		 JLabel jLabelTotalx=new JLabel("行数:");
-		 JLabel jLabelTotaly=new JLabel("列数:");
-		 JLabel jLabelTotalMine=new JLabel("雷数:");
+		JLabel jLabelTotalx=new JLabel("行数:");
+		JLabel jLabelTotaly=new JLabel("列数:");
+		JLabel jLabelTotalMine=new JLabel("雷数:");
 
 		jPanel.add(jLabelTotalx);
 		jPanel.add(jTextField1);
@@ -73,17 +73,17 @@ public class About extends JDialog {
 								sartFrame.restart();
 								About.this.dispose();
 							}else{
-								JOptionPane.showMessageDialog(null, "布雷有误请重试!!!\n布雷数应少于总格子数!!!", "提示消息", JOptionPane.NO_OPTION);	
+								JOptionPane.showMessageDialog(null, "您的布雷数量有误,请重试\n布雷数应大于10且小于总格子数的80%", "提示消息", JOptionPane.NO_OPTION);	
 							}
 						}else {
-							JOptionPane.showMessageDialog(null, "您输入的列数有误\n请重试！！！", "提示消息", JOptionPane.NO_OPTION);		
+							JOptionPane.showMessageDialog(null, "您输入的列数有误,请重试\n列数应该大于9且小于30", "提示消息", JOptionPane.NO_OPTION);		
 						}				
 					}else {
-						JOptionPane.showMessageDialog(null, "您输入的行数有误\n请重试！！！", "提示消息", JOptionPane.NO_OPTION);	
+						JOptionPane.showMessageDialog(null, "您输入的行数有误,请重试\n行数应当大于9且小于30", "提示消息", JOptionPane.NO_OPTION);	
 
 					}		
 				} catch (Exception e2) {
-					JOptionPane.showMessageDialog(null, "必须是数字类型", "提示消息", JOptionPane.NO_OPTION);
+					JOptionPane.showMessageDialog(null, "输入必须都是数字类型", "提示消息", JOptionPane.NO_OPTION);
 					return;
 				}
 				
@@ -93,6 +93,7 @@ public class About extends JDialog {
 		butno.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				About.this.dispose();
+				//About.this表示从内部类指向外部类About
 			}
 		});
 		this.add(jPanel);

@@ -7,7 +7,7 @@ public class Own implements Comparable<Own>{
 	
 	
 	public Own(int times, String name, String level) {
-		super();
+		//super();
 		this.times = times;
 		this.name = name;
 		this.level = level;
@@ -32,7 +32,7 @@ public class Own implements Comparable<Own>{
 	}
 
 	public int compareTo(Own arg0) {
-		// TODO Auto-generated method stub
+		
 		int i = this.times - arg0.times;
 		if(i==0){
 			return this.name.hashCode() - arg0.name.hashCode();	
