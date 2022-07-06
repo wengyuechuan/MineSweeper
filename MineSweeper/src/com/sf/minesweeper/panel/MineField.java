@@ -67,8 +67,7 @@ public class MineField extends JPanel {
 			
 			int x = (int) (Math.random() * Tools.totalx);
 			int y = (int) (Math.random() * Tools.totaly);
-			//System.out.println(y);
-
+			
 			if(x==rowx && y==coly){
 				i--;
 			}
