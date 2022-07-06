@@ -5,12 +5,9 @@ import java.awt.Font;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.io.IOException;
-import java.net.Socket;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JTextArea;
 import javax.swing.Timer;
 import javax.swing.UIManager;
 

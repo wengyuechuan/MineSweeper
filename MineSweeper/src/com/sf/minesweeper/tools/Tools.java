@@ -1,5 +1,5 @@
 package com.sf.minesweeper.tools;
-//Download by http://www.codefans.net
+
 import java.awt.Image;
 
 import javax.swing.ImageIcon;

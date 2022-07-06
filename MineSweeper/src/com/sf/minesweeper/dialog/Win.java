@@ -2,7 +2,6 @@ package com.sf.minesweeper.dialog;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.TreeSet;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -10,7 +9,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import com.sf.minesweeper.bean.Own;
 import com.sf.minesweeper.frame.SartFrame;
 import com.sf.minesweeper.tools.Tools;
 

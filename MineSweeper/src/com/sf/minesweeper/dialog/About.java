@@ -6,13 +6,11 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import com.sf.minesweeper.bean.Own;
 import com.sf.minesweeper.frame.SartFrame;
 import com.sf.minesweeper.tools.Tools;
 

@@ -1,13 +1,9 @@
 package com.sf.minesweeper.panel;
 
 import java.awt.BorderLayout;
-
-import java.awt.Color;
 import java.awt.GridLayout;
 
-import javax.swing.BorderFactory;
 import javax.swing.JPanel;
-import javax.swing.border.Border;
 
 import com.sf.minesweeper.bean.MineLabel;
 import com.sf.minesweeper.frame.SartFrame;
