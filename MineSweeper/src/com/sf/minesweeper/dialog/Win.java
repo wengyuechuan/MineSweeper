@@ -57,7 +57,7 @@ public class Win extends JDialog {
 				String ip = sartFrame.getNetlink().s.getInetAddress().toString();
 				int BlockNum = Tools.totalx * Tools.totaly;
 				String score = ""+ Tools.magnification * Tools.totalMine / BlockNum * Tools.time;
-				sartFrame.getNetlink().putwinRequset(Tools.name1, ip, ""+Tools.time, score);
+				sartFrame.getNetlink().putwinRequset(text.getText(), ip, ""+Tools.time, score);
 				
 				Win.this.dispose();
 				

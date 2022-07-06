@@ -119,8 +119,11 @@ public class ShowWin extends JDialog {
 			
 			Box box5 = Box.createHorizontalBox();
 			box5.add(box1);//玩家
+			box5.add(Box.createHorizontalStrut(20));
 			box5.add(box2);//ip
+			box5.add(Box.createHorizontalStrut(20));
 			box5.add(box3);//时间
+			box5.add(Box.createHorizontalStrut(20));
 			box5.add(box7);//得分
 			Box box6 = Box.createVerticalBox();
 			box6.add(Box.createVerticalStrut(20));
