@@ -67,12 +67,9 @@ public class MineField extends JPanel {
 			
 			int x = (int) (Math.random() * Tools.totalx);
 			int y = (int) (Math.random() * Tools.totaly);
-			//System.out.println(y);
+			
 
-			if(x==rowx && y==coly){
-				i--;
-			}
-			else if(mineLabel[x][y].isMine()){
+			if((x==rowx && y==coly) || mineLabel[x][y].isMine() || judgeIfRound(x,y)){ //rowx和coly是点击的位置的长和宽
 				i--;
 			}else{
 				mineLabel[x][y].setMine(true);
@@ -115,9 +112,40 @@ public class MineField extends JPanel {
 		return mineLabel;
 	}
 
+	/**
+	 * 判断当前位置是否可以生成雷
+	 * @param x 当前的横坐标
+	 * @param y	当前的纵坐标
+	 * @return
+	 */
+	public boolean judgeIfRound(int x,int y) { 
+		boolean result;
+		boolean flag1=true,flag2=true,flag3=true,flag4=true,flag5=true,flag6=true,flag7=true,flag8=true;
+		flag1=getFlag(x,y);
+		flag2=getFlag(x-2,y);
+		flag3=getFlag(x,y-2);
+		flag4=getFlag(x-2,y-2);
+		flag5=getFlag(x,y-1);
+		flag6=getFlag(x-1,y);
+		flag7=getFlag(x-2,y-1);
+		flag8=getFlag(x-1,y-2);
+		result=flag1||flag2||flag3||flag4||flag5||flag6||flag7||flag8;  //有一种不行就不行
+			
+		return result;
+	}
 
-
-
+	public boolean getFlag(int x1,int y1) {
+		boolean flag=true;
+		for(int i=Math.max(x1,0);i<=Math.min(x1+2, Tools.totalx-1);i++) {
+			for(int j=Math.max(y1, 0);j<=Math.min(Tools.totaly-1, y1+2);j++) {
+				if(!mineLabel[i][j].isMine() && i!=x1+1 && j!=y1+1) { //如果不是雷
+					flag=false;
+					break;
+				}
+			}
+		}
+		return flag;
+	}
 	public void setMineLabel(MineLabel[][] mineLabel) {
 		this.mineLabel = mineLabel;
 	}
