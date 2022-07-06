@@ -16,6 +16,10 @@ import com.sf.minesweeper.frame.SartFrame;
 import com.sf.minesweeper.tools.Tools;
 
 public class LoginDialog extends JDialog{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4230226090291787863L;
 	private JLabel username;//账号标签
 	private JLabel password;//密码标签
 	private JButton submit;//提交按钮
@@ -40,7 +44,12 @@ public class LoginDialog extends JDialog{
 		password=new JLabel("密码：");
 		final JDialog that=this;
 	    submit=new JButton(new AbstractAction("登录") {
-	        @Override
+	        /**
+			 * 
+			 */
+			private static final long serialVersionUID = -3262524165999072279L;
+
+			@Override
 	        public void actionPerformed(ActionEvent e) {
 	        	if(Tools.islogin) {
 	        		JOptionPane.showMessageDialog(that,"您已经登录过了，如果需要更换账号请退出重新登陆");

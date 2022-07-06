@@ -15,6 +15,10 @@ import com.sf.minesweeper.tools.Tools;
 public class ShowWin extends JDialog {
 	
 			
+		/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4694171092569144080L;
 		private JLabel jlabelTime;
 		private JLabel jlabelUser;
 		

@@ -13,6 +13,10 @@ import com.sf.minesweeper.frame.SartFrame;
 import com.sf.minesweeper.tools.Tools;
 
 public class Win extends JDialog {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5748133165731210306L;
 	SartFrame sartFrame;
 	private JTextField text;
 	

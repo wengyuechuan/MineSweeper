@@ -8,7 +8,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import com.sf.minesweeper.dialog.About;
-import com.sf.minesweeper.dialog.ShowWin;
 import com.sf.minesweeper.frame.SartFrame;
 import com.sf.minesweeper.tools.Tools;
 

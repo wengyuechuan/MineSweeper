@@ -4,12 +4,9 @@ import java.awt.event.InputEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-import javax.swing.JOptionPane;
-
 import com.sf.minesweeper.bean.MineLabel;
 import com.sf.minesweeper.dialog.Win;
 import com.sf.minesweeper.frame.SartFrame;
-import com.sf.minesweeper.panel.MineField;
 import com.sf.minesweeper.tools.Tools;
 
 public class MouseListener extends MouseAdapter {

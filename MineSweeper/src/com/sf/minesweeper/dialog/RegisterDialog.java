@@ -9,6 +9,10 @@ import com.sf.minesweeper.frame.SartFrame;
 import com.sf.minesweeper.tools.Tools;
 
 public class RegisterDialog extends JDialog{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6688186545326020940L;
 	private JLabel username;//’À∫≈±Í«©
 	private JLabel password;//√‹¬Î±Í«©
 	private JLabel repassword;//√‹¬Î±Í«©
@@ -39,7 +43,12 @@ public class RegisterDialog extends JDialog{
 		repassword=new JLabel("÷ÿ∏¥√‹¬Î£∫");
 		final JDialog that=this;
 	    submit=new JButton(new AbstractAction("◊¢≤·") {
-	        @Override
+	        /**
+			 * 
+			 */
+			private static final long serialVersionUID = 2958397878893239465L;
+
+			@Override
 	        public void actionPerformed(ActionEvent e) {
 	            String username1=uname.getText();
 	            String password1= String.valueOf(passwordField.getPassword());
