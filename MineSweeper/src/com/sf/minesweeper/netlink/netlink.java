@@ -34,7 +34,7 @@ public class netlink implements Runnable{
 				e.printStackTrace();
 			} catch (IOException e) {
 				
-				e.printStackTrace();
+//				e.printStackTrace();
 				JOptionPane.showMessageDialog(this.sartframe,"socket发生了错误，有可能是服务器没有开启或者您的网络出现了问题");//可以使用
 				System.exit(1); 
 			}

@@ -15,9 +15,6 @@ import com.sf.minesweeper.frame.SartFrame;
 import com.sf.minesweeper.tools.Tools;
 
 public class About extends JDialog {
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -4435360202497977085L;
 	private JLabel labx,laby,labmine;
 	private JTextField jTextField1,jTextField2,jTextField3;

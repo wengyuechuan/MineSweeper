@@ -21,9 +21,6 @@ import com.sf.minesweeper.tools.Tools;
 
 public class SartFrame extends JFrame{
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -1585043387266273492L;
 	/**
 	 * @param args

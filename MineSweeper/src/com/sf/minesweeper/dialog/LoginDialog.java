@@ -16,9 +16,7 @@ import com.sf.minesweeper.frame.SartFrame;
 import com.sf.minesweeper.tools.Tools;
 
 public class LoginDialog extends JDialog{
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = -4230226090291787863L;
 	private JLabel username;//’À∫≈±Í«©
 	private JLabel password;//√‹¬Î±Í«©

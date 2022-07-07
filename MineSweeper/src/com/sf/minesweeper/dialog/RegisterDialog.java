@@ -9,9 +9,6 @@ import com.sf.minesweeper.frame.SartFrame;
 import com.sf.minesweeper.tools.Tools;
 
 public class RegisterDialog extends JDialog{
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 6688186545326020940L;
 	private JLabel username;//’À∫≈±Í«©
 	private JLabel password;//√‹¬Î±Í«©

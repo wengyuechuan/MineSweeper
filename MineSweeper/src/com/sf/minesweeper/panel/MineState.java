@@ -15,10 +15,6 @@ import com.sf.minesweeper.frame.SartFrame;
 import com.sf.minesweeper.tools.Tools;
 
 public class MineState extends JPanel {
-
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -8182315879096608890L;
 
 	private JLabel newGame;//Ð¦Á³
