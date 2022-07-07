@@ -12,10 +12,6 @@ import com.sf.minesweeper.frame.SartFrame;
 import com.sf.minesweeper.tools.Tools;
 
 public class MineMenuListener implements ActionListener {
-	JMenuItem jMenuItem;
-	JOptionPane jo1= new JOptionPane();
-//	JOptionPane jo2=new JOptionPane();
-	JTextField jTextField=new JTextField();
 	SartFrame sartFrame;
 	
 	public MineMenuListener(SartFrame sartFrame){

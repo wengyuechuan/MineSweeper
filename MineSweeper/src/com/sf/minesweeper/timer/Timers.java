@@ -8,7 +8,6 @@ import com.sf.minesweeper.tools.Tools;
 
 public class Timers implements ActionListener{
 
-	private int times;
 	MineState mineState;
 	public Timers(MineState mineState){
 		this.mineState = mineState;

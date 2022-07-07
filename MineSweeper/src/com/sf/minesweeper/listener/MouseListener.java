@@ -15,7 +15,6 @@ public class MouseListener extends MouseAdapter {
 	 */
 	private int mousePressedCount;            // 鼠标点击的次数
 	private int expendedCount;                 //雷块展开的数量
-	// MineField mineField;
 	
 	SartFrame sartframe;
 	boolean isDouble ;
@@ -94,7 +93,7 @@ public class MouseListener extends MouseAdapter {
 		} else if (d1 ==MouseEvent.BUTTON1)  {
 			// 未展开且不是旗子(图片陷进去)
 			if (!mineLabel.isExpanded() && !mineLabel.isFlag()) {
-				// 问号
+				// 问号则点击之后会被打开
 				if (mineLabel.getRightClickCount() == 2) {
 					mineLabel.setIcon(Tools.iiask1);
 					// 雷块
@@ -200,6 +199,7 @@ public class MouseListener extends MouseAdapter {
 		}
 
 		// 2 已经展开且周围雷数和旗子相等，判断周围8个方向是否有踩到雷(是雷，但没有旗子)
+		//即虽然旗子数量正确，但是没有标在正确的位置上面，则直接爆炸
 		if (sartframe.getMineField().getMineLabel()[rowIndex][colIndex]
 				.isExpanded()
 				&& sartframe.getMineField().getMineLabel()[rowIndex][colIndex]
@@ -221,7 +221,7 @@ public class MouseListener extends MouseAdapter {
 				}
 			}
 			// 踩到雷
-			if (isBobm) {
+			if (isBobm) { //展开整个雷区
 				openMine(rowIndex, colIndex);
 			}
 
@@ -268,7 +268,7 @@ public class MouseListener extends MouseAdapter {
 		}
 	}
 	
-	public void openMine(int i, int j) {
+	public void openMine(int i, int j) {//展开整个雷区
 		for (int m = 0; m < Tools.totalx; m++) {
 			for (int n = 0; n < Tools.totaly; n++) {
 				MineLabel mineLabel = sartframe.getMineField().getMineLabel()[m][n];
@@ -281,7 +281,7 @@ public class MouseListener extends MouseAdapter {
 					} else {
 						mineLabel.setIcon(Tools.iimine);
 					}
-					
+					//如果标错旗子
 				} else if (!mineLabel.isMine() && mineLabel.isFlag()) {
 					mineLabel.setIcon(Tools.iierror);
 					sartframe.getMineState().getNewGame()
@@ -297,7 +297,7 @@ public class MouseListener extends MouseAdapter {
 	}
 
 
-	private void open(int rowIndex, int colIndex) {
+	private void open(int rowIndex, int colIndex) {//打开格子，如果是空的则会递归打开周围的空的格子
 
 		MineLabel mineLabel = sartframe.getMineField().getMineLabel()[rowIndex][colIndex];
 		if (!mineLabel.isExpanded() && !mineLabel.isFlag()) {
@@ -322,8 +322,7 @@ public class MouseListener extends MouseAdapter {
 	}
 
 
-	public void isMind() {
-		// TODO Auto-generated method stubt;
+	public void isMind() {//判断是否胜利
 		if (Tools.totalx * Tools.totaly - expendedCount == Tools.totalMine) {
 
 			for (int g = 0; g < Tools.totalx; g++)
