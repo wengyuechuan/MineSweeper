@@ -1,5 +1,4 @@
 package com.sf.minesweeper.bean;
-//Download by http://www.codefans.net
 import javax.swing.JLabel;
 	/**
 	 * 自定义标签(雷块)

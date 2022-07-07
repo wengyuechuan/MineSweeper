@@ -21,11 +21,11 @@ public class MineState extends JPanel {
 	 */
 	private static final long serialVersionUID = -8182315879096608890L;
 
-	private JLabel newGame;
+	private JLabel newGame;//笑脸
 
-	private JLabel usedtimeG, usedtimeS, usedtimeB;
+	private JLabel usedtimeG, usedtimeS, usedtimeB;//时间的三位数字
 
-	private JLabel totalBobmG, totalBobmS, totalBobmB;
+	private JLabel totalBobmG, totalBobmS, totalBobmB;//剩余炸弹数量的炸弹
 	
 	Box b;
 	SartFrame sartFrame;
@@ -43,8 +43,7 @@ public class MineState extends JPanel {
 		b.setBorder(borderGroup);
 		
 		setBackground(Color.LIGHT_GRAY);
-		
-		newGame = new JLabel();
+	
 		newGame = new JLabel();
 		newGame.setIcon(Tools.iiface0);
 		newGame.addMouseListener(new MouseAdapter() {
@@ -52,7 +51,7 @@ public class MineState extends JPanel {
 				newGame.setIcon(Tools.iiface1);
 			}
 
-			public void mouseReleased(MouseEvent arg0) {
+			public void mouseReleased(MouseEvent arg0) {//点击之后重启
 				 newGame.setIcon(Tools.iiface0);
 				 MineState.this.sartFrame.restart();
 			}
@@ -63,7 +62,7 @@ public class MineState extends JPanel {
 		totalBobmS = new JLabel();
 		totalBobmB = new JLabel();
 		
-		setTotalMineG(Tools.totalMine);
+		setTotalMineG(Tools.totalMine);//计算当前雷数
 		
 		usedtimeS = new JLabel();
 		usedtimeS.setIcon(Tools.timeCount[0]);

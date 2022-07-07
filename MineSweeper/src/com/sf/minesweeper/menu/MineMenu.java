@@ -16,9 +16,6 @@ import com.sf.minesweeper.listener.MineMenuListener;
 import com.sf.minesweeper.tools.Tools;
 
 public class MineMenu extends JMenuBar {
-	/**
-	 * 
-	 */
 	private SartFrame sartFrame;
 	private static final long serialVersionUID = -5997735339754706915L;
 	//SartFrame sartFrame;
