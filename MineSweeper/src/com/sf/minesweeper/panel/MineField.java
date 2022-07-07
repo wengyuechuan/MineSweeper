@@ -134,7 +134,7 @@ public class MineField extends JPanel {
 		boolean flag=true;
 		for(int i=Math.max(x1,0);i<=Math.min(x1+2, Tools.totalx-1);i++) {
 			for(int j=Math.max(y1, 0);j<=Math.min(Tools.totaly-1, y1+2);j++) {
-				if(!mineLabel[i][j].isMine() && i!=x1+1 && j!=y1+1 && i!=) { //如果不是雷
+				if(!mineLabel[i][j].isMine() && i!=x1+1 && j!=y1+1 && i!=x1 && j!=y1) { //如果不是雷
 					flag=false;
 					break;
 				}
