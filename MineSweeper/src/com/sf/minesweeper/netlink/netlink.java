@@ -13,7 +13,7 @@ import com.sf.minesweeper.frame.SartFrame;
 import com.sf.minesweeper.tools.Tools;
 
 public class netlink implements Runnable{
-	public Socket s=null; //由于异常问题，则这里
+	public Socket s=null; 
 	public BufferedReader br=null;
 	public PrintStream ps=null;
 	public SartFrame sartframe=null;
@@ -30,10 +30,10 @@ public class netlink implements Runnable{
 			try {
 				this.s=new Socket("127.0.0.1",9999);
 			} catch (UnknownHostException e) {
-				// TODO Auto-generated catch block
+				
 				e.printStackTrace();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
+				
 				e.printStackTrace();
 				JOptionPane.showMessageDialog(this.sartframe,"socket发生了错误，有可能是服务器没有开启或者您的网络出现了问题");//可以使用
 				System.exit(1); 
@@ -42,13 +42,13 @@ public class netlink implements Runnable{
 		try {
 			this.br=new BufferedReader(new InputStreamReader(s.getInputStream()));
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}//用于读取信息的缓冲区
         try {
 			this.ps = new PrintStream(s.getOutputStream());
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
         new Thread(this).start();//在创建线程的过程中就启动线程
@@ -67,7 +67,7 @@ public class netlink implements Runnable{
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 	}
@@ -77,7 +77,7 @@ public class netlink implements Runnable{
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 	}
@@ -87,7 +87,7 @@ public class netlink implements Runnable{
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 	}//目前还未使用在事件监听操作中
@@ -97,7 +97,7 @@ public class netlink implements Runnable{
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 	}
@@ -107,7 +107,7 @@ public class netlink implements Runnable{
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 	}
@@ -159,7 +159,7 @@ public class netlink implements Runnable{
 				}
 				
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
+				
 				e.printStackTrace();
 			}
 			

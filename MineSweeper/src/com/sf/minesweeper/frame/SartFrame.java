@@ -5,6 +5,7 @@ import java.awt.Font;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.io.IOException;
+import java.util.Enumeration;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -44,7 +45,7 @@ public class SartFrame extends JFrame{
 	public SartFrame() throws IOException {
 		//改变系统默认字体
 		Font font = new Font("Dialog", Font.PLAIN, 12);
-		java.util.Enumeration keys = UIManager.getDefaults().keys();
+		Enumeration<Object> keys = UIManager.getDefaults().keys();
 		while (keys.hasMoreElements()) {
 			Object key = keys.nextElement();
 			Object value = UIManager.get(key);
